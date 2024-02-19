@@ -1,36 +1,35 @@
 // Function to send a message
-// Function to send a message
 async function sendMessage() {
-  var userInput = document.getElementById("userInput");
-  var message = userInput.value.trim();
+  let userInput = document.getElementById("userInput");
+  let message = userInput.value.trim();
 
-  if (message !== "") {
-    // Append user message to chat box
-    appendMessage("user", message);
+  if (message === "") return; // Ignore empty messages
 
-    // Clear input field
-    userInput.value = "";
+  // Append user message to chat box
+  appendMessage("user", message);
 
-    try {
-      // Get bot response
-      var botResponse = await getBotResponseAI(message);
-      // Append bot response to chat box
-      appendMessage("bot", botResponse);
-    } catch (error) {
-      // Handle error
-      console.error("Error fetching bot response:", error);
-      appendMessage("bot", "Bot: Sorry, I couldn't process your request.");
-    }
+  // Clear input field
+  userInput.value = "";
+
+  try {
+    // Get bot response
+    let botResponse = await getBotResponseAI(message);
+    // Append bot response to chat box
+    appendMessage("bot", botResponse);
+  } catch (error) {
+    // Handle error
+    console.error("Error fetching bot response:", error);
+    appendMessage("bot", "Bot: Sorry, I couldn't process your request.");
   }
 }
 
 // Function to append a message to the chat box
 function appendMessage(sender, message) {
-  var chatBox = document.getElementById("chatBox");
-  var messageElement = document.createElement("div");
+  let chatBox = document.getElementById("chatBox");
+  let messageElement = document.createElement("div");
   messageElement.classList.add(sender);
 
-  var messageText = document.createElement("p");
+  let messageText = document.createElement("p");
   messageText.textContent = message;
 
   messageElement.appendChild(messageText);
@@ -58,37 +57,19 @@ async function getBotResponseAI(message) {
 
 // Function to handle user input and bot response
 async function handleUserInput() {
-  var userInput = document.getElementById("userInput");
-  var message = userInput.value.trim();
+  let userInput = document.getElementById("userInput");
+  let message = userInput.value.trim();
 
-  if (message !== "") {
-    // Append user message to chat box
-    appendMessage("user", message);
-
-    // Clear input field
-    userInput.value = "";
-
-    // Get bot response and append to chat box
-    try {
-      const botResponse = await getBotResponseAI(message);
-      appendMessage("bot", botResponse);
-    } catch (error) {
-      console.error("Error fetching bot response:", error);
-      appendMessage("bot", "Bot: Sorry, I couldn't process your request.");
-    }
+  // Send message if Enter key is pressed
+  if (event.key === "Enter") {
+    await sendMessage();
   }
 }
 
 // Event listener for sending message on button click
-document
-  .getElementById("sendButton")
-  .addEventListener("click", handleUserInput);
+document.getElementById("sendButton").addEventListener("click", sendMessage);
 
 // Event listener for sending message on pressing Enter key
 document
   .getElementById("userInput")
-  .addEventListener("keypress", function (event) {
-    if (event.key === "Enter") {
-      handleUserInput();
-    }
-  });
+  .addEventListener("keypress", handleUserInput);
