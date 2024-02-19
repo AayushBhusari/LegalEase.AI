@@ -1,0 +1,208 @@
+/* Add your CSS styles here */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+* {
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  background-color: royalblue;
+  color: white;
+}
+
+.navbar-left {
+  flex-grow: 1;
+}
+
+h1 {
+  font-size: 1.5rem;
+  margin: 1rem;
+  user-select: none;
+}
+
+.navbar-right {
+  display: flex;
+}
+
+.navbar-links {
+  margin-right: 1rem;
+}
+
+.navbar-links ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links li {
+  list-style: none;
+  padding: 5px;
+}
+
+.navbar-links li a {
+  text-decoration: none;
+  color: white;
+  padding: 1rem;
+}
+
+.navbar-links li:hover {
+  background-color: aqua;
+}
+
+.navbar-links li a:hover {
+  color: black;
+  font-weight: 600;
+}
+
+.toggle-button {
+  position: absolute;
+  top: 0.75rem;
+  right: 1rem;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+}
+
+.toggle-button .bar {
+  height: 3px;
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+}
+
+/* Main page styles */
+
+.main-section {
+  padding: 0 50px;
+}
+.search-bar {
+  margin-bottom: 20px;
+  display: flex;
+}
+
+.search-bar input[type="text"] {
+  width: calc(70% - 5px);
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+.search-bar select {
+  width: 20%;
+}
+.search-bar button {
+  padding: 10px 20px;
+  background-color: royalblue;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.search-bar button:hover {
+  background-color: #0056b3;
+}
+
+.suggestion-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.suggestion {
+  width: calc(33.33% - 10px);
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.suggestion h4 {
+  margin-top: 0;
+}
+
+/* Footer Styles */
+footer {
+  background-color: royalblue;
+  color: white;
+  padding: 1rem 0;
+}
+
+.footer-links ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-links li {
+  margin: 0 10px;
+}
+
+.footer-links li a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s ease-in-out;
+}
+
+.footer-links li a:hover {
+  color: black;
+  font-weight: 600;
+}
+
+/* Style for the search results */
+#searchResults {
+  display: none;
+}
+
+/* Style for each lawyer item */
+.lawyer-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Style for lawyer image */
+.lawyer-image {
+  margin-right: 20px;
+}
+
+.lawyer-image img {
+  width: 100px; /* Adjust size as needed */
+  height: auto;
+}
+
+/* Style for lawyer details */
+.lawyer-details {
+  flex-grow: 1;
+}
+
+.lawyer-details h4 {
+  font-size: 18px;
+  margin: 0 0 5px;
+}
+
+.lawyer-details p {
+  font-size: 14px;
+  margin: 0;
+}
+
+.highlight {
+  font-weight: bold;
+}
