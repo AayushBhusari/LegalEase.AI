@@ -41,7 +41,8 @@
               id="userInput"
               placeholder="Type your message..."
             />
-            <button onclick="sendMessage()">Send</button>
+            <!-- <button onclick="sendMessage()">Send</button> -->
+            <button id="sendButton">Send</button>
           </div>
         </div>
       </div>
@@ -61,7 +62,13 @@
         </div>
       </div>
     </footer>
-
-    <script src="script.js"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "@google/generative-ai": "https://esm.run/@google/generative-ai"
+        }
+      }
+    </script>
+    <script type="module" src="script.js"></script>
   </body>
 </html>
