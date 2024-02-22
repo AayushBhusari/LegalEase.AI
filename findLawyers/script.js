@@ -30,6 +30,12 @@ function searchLawyers() {
         ratings: "4.7 with 20 reviews",
       },
       {
+        name: "Om Lakhani",
+        type: "Civil Lawyer",
+        location: "Ramdaspeth, Nagpur",
+        ratings: "4.9 with 50 reviews",
+      },
+      {
         name: "Ananya Singh",
         type: "Family Lawyer",
         location: "Koramangala, Bangalore",
@@ -52,6 +58,13 @@ function searchLawyers() {
         type: "Real Estate Lawyer",
         location: "Powai, Mumbai",
         ratings: "4.6 with 22 reviews",
+      },
+      ,
+      {
+        name: "Ruchira Banode",
+        type: "Civil Lawyer",
+        location: "Barh, Patna",
+        ratings: "2.3 with 18 reviews",
       },
       {
         name: "Rajiv Gupta",
@@ -153,14 +166,14 @@ function searchLawyers() {
         var listItem = document.createElement("div");
         listItem.classList.add("lawyer-item");
 
-        // Lawyer image
+        /*  // Lawyer image
         var lawyerImageContainer = document.createElement("div");
         lawyerImageContainer.classList.add("lawyer-image");
         var lawyerImage = document.createElement("img");
         lawyerImage.src = "placeholder.jpg"; // Placeholder image source
         lawyerImage.alt = "Lawyer Image";
         lawyerImageContainer.appendChild(lawyerImage);
-        listItem.appendChild(lawyerImageContainer);
+        listItem.appendChild(lawyerImageContainer); */
 
         // Lawyer details
         var lawyerDetails = document.createElement("div");
