@@ -123,16 +123,23 @@ h1 {
   justify-content: space-between;
 }
 
+.suggestion h4 {
+  margin-top: 0;
+}
+
 .suggestion {
   width: calc(33.33% - 10px);
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   margin-bottom: 20px;
+  transition: box-shadow 0.3s ease-in-out; /* Added transition */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Added box shadow */
 }
 
-.suggestion h4 {
-  margin-top: 0;
+.suggestion:hover {
+  background-color: #f0f0f0; /* Change background color on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
 }
 
 /* Footer Styles */
@@ -168,14 +175,16 @@ footer {
 /* Style for the search results */
 #searchResults {
   display: none;
+  padding-bottom: 2rem;
 }
 
 /* Style for each lawyer item */
 .lawyer-item {
   display: flex;
   align-items: center;
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
+  padding: 1rem;
+  margin: 10px;
+  border: 1px solid #ccc;
 }
 
 /* Style for lawyer image */

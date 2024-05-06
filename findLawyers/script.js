@@ -30,7 +30,7 @@ function searchLawyers() {
         ratings: "4.7 with 20 reviews",
       },
       {
-        name: "Om Lakhani",
+        name: "Om Vaidya",
         type: "Civil Lawyer",
         location: "Ramdaspeth, Nagpur",
         ratings: "4.9 with 50 reviews",
@@ -211,3 +211,13 @@ function searchLawyers() {
     searchResults.style.display = "none";
   }
 }
+
+// Function to search for lawyers by type
+const searchByType = (type) => {
+  // Get the input element
+  let searchInput = document.getElementById("searchInput");
+  // Set the input value to the type of lawyer
+  searchInput.value = type;
+  // Trigger the search function
+  searchLawyers();
+};
