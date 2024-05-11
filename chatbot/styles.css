@@ -166,3 +166,23 @@ h1 {
   margin-bottom: 10px;
   text-align: right;
 }
+
+.bot {
+  padding: 10px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+/* CSS for the copy button */
+.bot button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 10px;
+  background-color: #605c5c;
+  border-radius: 10%;
+  border: 1px solid black;
+}
+.bot button:hover {
+  font-size: 15px;
+}

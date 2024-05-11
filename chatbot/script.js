@@ -4,32 +4,28 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 async function sendMessage() {
   let userInput = document.getElementById("userInput");
   let message = userInput.value.trim();
-
+  // Clear input field after sending message
+  userInput.value = "";
   if (message === "") return; // Ignore empty messages
 
   // Append user message to chat box
   appendMessage("user", message);
 
-  // Show loading indicator while fetching bot response
-  appendMessage("bot", "...");
-
-  // Clear input field
-  userInput.value = "";
-
   try {
     // Get bot response
     let botResponse = await getBotResponseAI(message);
-    console.log(botResponse);
     // Format bot response
     botResponse = formatResponse(botResponse);
-    console.log(botResponse);
-    // Update loading indicator with bot response
-    updateMessage("bot", "...", botResponse);
+    // Append bot response to chat box
+    appendMessage("bot", botResponse);
   } catch (error) {
     // Handle error
     console.error("Error fetching bot response:", error);
-    updateMessage("bot", "...", "Bot: Sorry, I couldn't process your request.");
+    appendMessage("bot", "Bot: Sorry, I couldn't process your request.");
   }
+
+  // Scroll to the bottom of the chat box
+  scrollChatToBottom();
 }
 
 // Function to append a message to the chat box
@@ -40,29 +36,23 @@ function appendMessage(sender, message) {
 
   let messageText = document.createElement("div");
   messageText.innerText = message;
-
   messageElement.appendChild(messageText);
+
+  // Add copy button for bot messages
+  if (sender === "bot") {
+    let copyButton = document.createElement("button");
+    copyButton.innerText = `COPY`;
+    copyButton.classList.add("copy-btn");
+    copyButton.addEventListener("click", function () {
+      copyToClipboard(message);
+    });
+    messageElement.appendChild(copyButton);
+  }
+
   chatBox.appendChild(messageElement);
 
   // Scroll to the bottom of the chat box
-  chatBox.scrollTop = chatBox.scrollHeight;
-}
-
-// Function to update a message in the chat box
-function updateMessage(sender, oldMessage, newMessage) {
-  let chatBox = document.getElementById("chatBox");
-  let messages = chatBox.getElementsByClassName(sender);
-
-  // Find the message with the old content and update it with the new content
-  for (let message of messages) {
-    if (message.innerText === oldMessage) {
-      message.innerText = newMessage;
-      break;
-    }
-  }
-
-  // Scroll to the bottom of the chat box
-  chatBox.scrollTop = chatBox.scrollHeight;
+  scrollChatToBottom();
 }
 
 // Placeholder function for fetching bot response using Google Generative AI
@@ -76,18 +66,27 @@ async function getBotResponseAI(message) {
   return response.text();
 }
 
-// Event listener for sending message on button click
-document.getElementById("sendButton").addEventListener("click", sendMessage);
+// Function to copy text to clipboard
+function copyToClipboard(text) {
+  navigator.clipboard
+    .writeText(text)
+    .then(() => {
+      const copyButton = document.querySelector(".copy-btn");
+      copyButton.innerText = "Copied";
+      setTimeout(() => {
+        copyButton.innerText = "Copy";
+      }, 3000);
+    })
+    .catch((error) => {
+      console.error("Error copying text to clipboard:", error);
+    });
+}
 
-// Event listener for sending message on pressing Enter key
-document
-  .getElementById("userInput")
-  .addEventListener("keypress", function (event) {
-    // Send message if Enter key is pressed
-    if (event.key === "Enter") {
-      sendMessage();
-    }
-  });
+// Function to scroll the chat box to the bottom
+function scrollChatToBottom() {
+  let chatBox = document.getElementById("chatBox");
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
 
 // Format the bot response
 const formatResponse = (response) => {
@@ -117,3 +116,16 @@ const formatResponse = (response) => {
 
   return formattedResponse.trim().replace(/\*/g, "");
 };
+
+// Event listener for sending message on button click
+document.getElementById("sendButton").addEventListener("click", sendMessage);
+
+// Event listener for sending message on pressing Enter key
+document
+  .getElementById("userInput")
+  .addEventListener("keypress", function (event) {
+    // Send message if Enter key is pressed
+    if (event.key === "Enter") {
+      sendMessage();
+    }
+  });
