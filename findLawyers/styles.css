@@ -9,6 +9,8 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: #243a49;
+  color: #fff;
 }
 
 /* Navbar Styles */
@@ -17,7 +19,7 @@ body {
   position: relative;
   justify-content: space-between;
   align-items: center;
-  background-color: royalblue;
+  background-color: #172b3a;
   color: white;
 }
 
@@ -99,6 +101,8 @@ h1 {
   border: 1px solid #ccc;
   border-radius: 5px;
   margin-right: 5px;
+  background-color: #3d4246;
+  color: white;
 }
 
 .search-bar select {
@@ -137,39 +141,20 @@ h1 {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Added box shadow */
 }
 
+.suggestion {
+  /* Your existing styles */
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out,
+    border-color 0.3s ease-in-out;
+}
+
 .suggestion:hover {
-  background-color: #f0f0f0; /* Change background color on hover */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+  background-color: #3e463e; /* Darker greenish-gray background color */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  border-color: #4caf50; /* Light green border color */
 }
 
-/* Footer Styles */
-footer {
-  background-color: royalblue;
-  color: white;
-  padding: 1rem 0;
-}
-
-.footer-links ul {
-  display: flex;
-  justify-content: center;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.footer-links li {
-  margin: 0 10px;
-}
-
-.footer-links li a {
-  text-decoration: none;
-  color: white;
-  transition: color 0.3s ease-in-out;
-}
-
-.footer-links li a:hover {
-  color: black;
-  font-weight: 600;
+.suggestion:hover h4 {
+  color: #4caf50; /* Light green text color */
 }
 
 /* Style for the search results */

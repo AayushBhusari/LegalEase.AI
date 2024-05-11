@@ -1,3 +1,5 @@
+const bacBtn = document.querySelector("back-btn");
+
 function searchLawyers() {
   var searchInput = document
     .getElementById("searchInput")
@@ -15,140 +17,298 @@ function searchLawyers() {
     suggestions.style.display = "none";
     searchResults.style.display = "block";
 
-    // Mocking search results with random names
     const lawyers = [
+      //Civil Lawyers
       {
-        name: "Rahul Sharma",
-        type: "Criminal Lawyer",
-        location: "Indira Nagar, Delhi",
-        ratings: "4.2 with 15 reviews",
-      },
-      {
-        name: "Sneha Patel",
+        name: "Adv. Parveen Southey",
         type: "Civil Lawyer",
-        location: "Bandra, Mumbai",
-        ratings: "4.7 with 20 reviews",
+        location: "West Patel Nagar, Delhi",
+        specialty:
+          "Domestic Violence, Divorce Case, Family Case, Matrimonial Cases",
+        contact: 7048382235,
       },
       {
-        name: "Om Vaidya",
+        name: "Adv. Dharampal Singh",
         type: "Civil Lawyer",
-        location: "Ramdaspeth, Nagpur",
-        ratings: "4.9 with 50 reviews",
+        location: "Surajpur, Greater Noida",
+        specialty: "Divorce Case, Documentation, Family Case, Legal Advisor",
+        contact: 8105359678,
       },
       {
-        name: "Ananya Singh",
-        type: "Family Lawyer",
-        location: "Koramangala, Bangalore",
-        ratings: "4.5 with 12 reviews",
-      },
-      {
-        name: "Vikram Malhotra",
-        type: "Corporate Lawyer",
-        location: "Salt Lake City, Kolkata",
-        ratings: "4.9 with 25 reviews",
-      },
-      {
-        name: "Anil Reddy",
-        type: "Labor and Employment Lawyer",
-        location: "Madhapur, Hyderabad",
-        ratings: "4.3 with 18 reviews",
-      },
-      {
-        name: "Priya Joshi",
-        type: "Real Estate Lawyer",
-        location: "Powai, Mumbai",
-        ratings: "4.6 with 22 reviews",
-      },
-      ,
-      {
-        name: "Ruchira Banode",
+        name: "Adv. Rohit Gupta ",
         type: "Civil Lawyer",
-        location: "Barh, Patna",
-        ratings: "2.3 with 18 reviews",
+        location: "East of Kailash, Delhi",
+        specialty:
+          "Domestic Violence, Divorce Case, Family Case, Legal Advisor",
+        contact: 7487085162,
       },
       {
-        name: "Rajiv Gupta",
-        type: "Intellectual Property Lawyer",
-        location: "Viman Nagar, Pune",
-        ratings: "4.8 with 30 reviews",
+        name: "Adv. Vivek Singh ",
+        type: "Civil Lawyer",
+        location: "Raj Nagar, Ghaziabad",
+        specialty:
+          "Matrimonial Cases, Divorce Case, Family Case, Real Estate Lawyer",
+        contact: 7411840165,
       },
       {
-        name: "Neha Shah",
-        type: "Tax Lawyer",
-        location: "Marathahalli, Bangalore",
-        ratings: "4.4 with 17 reviews",
+        name: "Adv. Shreya Dixit ",
+        type: "Civil Lawyer",
+        location: "Sohna Road, Gurgaon",
+        specialty:
+          "Divorce Case, Domestic Violence, Criminal Lawyer, Employment Lawyer",
+        contact: 8147943845,
       },
       {
-        name: "Amit Kumar",
+        name: "Adv. Praveen Thukral ",
+        type: "Civil Lawyer",
+        location: "Jagat Puri, Delhi",
+        specialty:
+          "Divorce Case, Criminal Lawyer, Family Lawyer, Marriage Registrar",
+        contact: 7795666575,
+      },
+      {
+        name: "Adv. Suprabh Kumar Roshan ",
+        type: "Civil Lawyer",
+        location: "India Gate, Delhi",
+        specialty:
+          "Domestic Violence, Divorce Case, Family Case, Matrimonial Cases",
+        contact: 7947432825,
+      },
+      {
+        name: "Ajay Kumar Singh",
+        type: "Civil Lawyer",
+        location: "Supreme Court, Delhi",
+        specialty:
+          "Divorce Case, Matrimonial Cases, Real Estate Lawyer, Criminal Lawyer",
+        contact: 9035640550,
+      },
+      {
+        name: "Adv. Pratyush Raj ",
+        type: "Civil Lawyer",
+        location: "India Gate, Delhi",
+        specialty:
+          "Society Registration, Family Case, Matrimonial Cases, Real Estate Lawyer",
+        contact: 7947132653,
+      },
+      //immigration lawyers
+      {
+        name: "Adv. Manoj Kr Mishra ",
         type: "Immigration Lawyer",
-        location: "Gomti Nagar, Lucknow",
-        ratings: "4.6 with 21 reviews",
+        location: "Tis Hazari, Delhi",
+        specialty:
+          "Cyber Lawyer, Immigration Lawyer, Criminal Lawyer, Real Estate Lawyer",
+        contact: 7411825831,
       },
       {
-        name: "Rakesh Gupta",
-        type: "Consumer Lawyer",
-        location: "Nehru Place, Delhi",
-        ratings: "4.5 with 19 reviews",
+        name: "Adv. Bhumika Aggarwal ",
+        type: "Immigration Lawyer",
+        location: "Patiala House, Delhi",
+        specialty:
+          "Tax Lawyer, Cyber Lawyer, Muslim Lawyer, Immigration Lawyer",
+        contact: 9035275632,
       },
       {
-        name: "Shreya Singh",
-        type: "Environmental Lawyer",
-        location: "Salt Lake, Kolkata",
-        ratings: "4.7 with 23 reviews",
+        name: "Adv. RK Sharma ",
+        type: "Immigration Lawyer",
+        location: "Adv. RK Sharma ",
+        specialty: "Immigration Lawyer, Real Estate Lawyer, Employment Lawyer",
+        contact: 7942685455,
       },
       {
-        name: "Avinash Patel",
-        type: "Human Rights Lawyer",
-        location: "Malad, Mumbai",
-        ratings: "4.9 with 28 reviews",
+        name: "Adv. Shashank Vachher ",
+        type: "Immigration Lawyer",
+        location: "Karol Bagh, Delhi",
+        specialty:
+          "Tax Lawyer, Immigration Lawyer, Family Lawyer, Real Estate Lawyer",
+        contact: 7947415407,
       },
       {
-        name: "Aditi Verma",
-        type: "Medical Malpractice Lawyer",
-        location: "Jayanagar, Bangalore",
-        ratings: "4.3 with 16 reviews",
+        name: "Adv. Santram Bhati ",
+        type: "Immigration Lawyer",
+        location: "Greater Noida",
+        specialty:
+          "Tax Lawyer, Immigration Lawyer, Insurance Lawyer, Matrimonial Lawyer",
+        contact: 8105467398,
       },
       {
-        name: "Harish Tiwari",
-        type: "Bankruptcy Lawyer",
-        location: "Chandni Chowk, Delhi",
-        ratings: "4.8 with 27 reviews",
+        name: "Adv. Pooja Kaintora ",
+        type: "Immigration Lawyer",
+        location: "Saket, Delhi",
+        specialty: "Immigration Lawyer",
+        contact: 7942777398,
+      },
+      /* Real estate lawyers */
+      {
+        name: "Adv. Manoj Kr Mishra ",
+        type: "Real Estate Lawyer",
+        location: "Tis Hazari, Delhi",
+        specialty:
+          "Cyber Lawyer, Immigration Lawyer, Criminal Lawyer, Real Estate Lawyer",
+        contact: 7411825831,
       },
       {
-        name: "Nisha Singh",
-        type: "Personal Injury Lawyer",
-        location: "Juhu, Mumbai",
-        ratings: "4.6 with 24 reviews",
+        name: "Adv. Vivek Singh ",
+        type: "Real Estate Lawyer",
+        location: "Raj Nagar, Ghaziabad",
+        specialty:
+          "Matrimonial Cases, Divorce Case, Family Case, Real Estate Lawyer",
+        contact: 7411840165,
       },
       {
-        name: "Suresh Kumar",
-        type: "Divorce Lawyer",
-        location: "Aundh, Pune",
-        ratings: "4.4 with 18 reviews",
+        name: "Ajay Kumar Singh",
+        type: "Real Estate Lawyer",
+        location: "Supreme Court, Delhi",
+        specialty:
+          "Divorce Case, Matrimonial Cases, Real Estate Lawyer, Criminal Lawyer",
+        contact: 9035640550,
       },
       {
-        name: "Meera Sharma",
-        type: "Property Lawyer",
-        location: "Sector 18, Noida",
-        ratings: "4.7 with 22 reviews",
+        name: "Adv. Pratyush Raj ",
+        type: "Real Estate Lawyer",
+        location: "India Gate, Delhi",
+        specialty:
+          "Society Registration, Family Case, Matrimonial Cases, Real Estate Lawyer",
+        contact: 7947132653,
       },
       {
-        name: "Alok Singh",
-        type: "Employment Lawyer",
-        location: "Secunderabad, Hyderabad",
-        ratings: "4.5 with 20 reviews",
+        name: "Adv. Shashank Vachher ",
+        type: "Real Estate Lawyer",
+        location: "Karol Bagh, Delhi",
+        specialty:
+          "Tax Lawyer, Immigration Lawyer, Family Lawyer, Real Estate Lawyer",
+        contact: 7947415407,
       },
       {
-        name: "Vikas Gupta",
-        type: "Contracts Lawyer",
-        location: "Vasant Kunj, Delhi",
-        ratings: "4.8 with 26 reviews",
+        name: "Adv. RK Sharma ",
+        type: "Real Estate Lawyer",
+        location: "Adv. RK Sharma ",
+        specialty: "Immigration Lawyer, Real Estate Lawyer, Employment Lawyer",
+        contact: 7942685455,
       },
       {
-        name: "Neha Verma",
-        type: "Traffic Lawyer",
-        location: "Vashi, Mumbai",
-        ratings: "4.6 with 23 reviews",
+        name: "Adv. Rovin Singh ",
+        type: "Real Estate Lawyer",
+        location: "New Delhi",
+        specialty: "Real Estate Lawyer, Criminal Lawyer, Employment Lawyer",
+        contact: 7947152902,
+      },
+
+      //Criminal Lawyers
+      {
+        name: "Adv. Manoj Kr Mishra ",
+        type: "Criminal Lawyer",
+        location: "Tis Hazari, Delhi",
+        specialty:
+          "Cyber Lawyer, Immigration Lawyer, Criminal Lawyer, Real Estate Lawyer",
+        contact: 7411825831,
+      },
+      {
+        name: "Adv. Shreya Dixit ",
+        type: "Criminal Lawyer",
+        location: "Sohna Road, Gurgaon",
+        specialty:
+          "Divorce Case, Domestic Violence, Criminal Lawyer, Employment Lawyer",
+        contact: 8147943845,
+      },
+      {
+        name: "Adv. Narendra Singh ",
+        type: "Criminal Lawyer",
+        location: "Supreme Court, Delhi",
+        specialty: "Criminal Lawyer",
+        contact: 9811338667,
+      },
+      {
+        name: "Adv. Kapil Chandna ",
+        type: "Criminal Lawyer",
+        location: "Supreme Court, Delhi",
+        specialty:
+          "Criminal Lawyer, Cyber Lawyer, Intellectual Property Lawyer",
+        contact: 7947181991,
+      },
+      {
+        name: "Ajay Kumar Singh",
+        type: "Criminal Lawyer",
+        location: "Supreme Court, Delhi",
+        specialty:
+          "Divorce Case, Matrimonial Cases, Real Estate Lawyer, Criminal Lawyer",
+        contact: 9035640550,
+      },
+      {
+        name: "Adv. Praveen Thukral ",
+        type: "Criminal Lawyer",
+        location: "Jagat Puri, Delhi",
+        specialty:
+          "Divorce Case, Criminal Lawyer, Family Lawyer, Marriage Registrar",
+        contact: 7795666575,
+      },
+      {
+        name: "Adv. Rovin Singh ",
+        type: "Criminal Lawyer",
+        location: "New Delhi",
+        specialty: "Real Estate Lawyer, Criminal Lawyer, Employment Lawyer",
+        contact: 7947152902,
+      },
+      //Tax Lawyers
+      {
+        name: "Adv. Amit Jha ",
+        type: "Tax Lawyer",
+        location: "Tis Hazari, Delhi",
+        specialty: "Income Tax",
+        contact: 7947418590,
+      },
+      {
+        name: "Adv. Rajat Gupta ",
+        type: "Tax Lawyer",
+        location: "Hisar, Haryana",
+        specialty: "Tax Lawyer",
+        contact: 7988034379,
+      },
+      {
+        name: "Adv. Bhumika Aggarwal ",
+        type: "Tax Lawyer",
+        location: "Patiala House, Delhi",
+        specialty:
+          "Tax Lawyer, Cyber Lawyer, Muslim Lawyer, Immigration Lawyer",
+        contact: 9035275632,
+      },
+      {
+        name: "Adv. Shashank Vachher ",
+        type: "Tax Lawyer",
+        location: "Karol Bagh, Delhi",
+        specialty:
+          "Tax Lawyer, Immigration Lawyer, Family Lawyer, Real Estate Lawyer",
+        contact: 7947415407,
+      },
+      {
+        name: "Adv. Santram Bhati ",
+        type: "Tax Lawyer",
+        location: "Greater Noida",
+        specialty:
+          "Tax Lawyer, Immigration Lawyer, Insurance Lawyer, Matrimonial Lawyer",
+        contact: 8105467398,
+      },
+      //IP Lawyers
+      {
+        name: "Adv. Kapil Chandna ",
+        type: "Intellectual Property Lawyer",
+        location: "Supreme Court, Delhi",
+        specialty:
+          "Criminal Lawyer, Cyber Lawyer, Intellectual Property Lawyer",
+        contact: 7947181991,
+      },
+      {
+        name: "Adv. Aditya Deshwal ",
+        type: "Intellectual Property Lawyer",
+        location: "TIS hazari, Delhi",
+        specialty: "Intellectual Property Lawyer",
+        contact: 7947416841,
+      },
+      {
+        name: "Adv. Purushottam Tiwari ",
+        type: "Intellectual Property Lawyer",
+        location: "Supreme Court, Delhi",
+        specialty: "Intellectual Property Lawyer, International Trade Law",
+        contact: 7411562763,
       },
     ];
 
@@ -189,13 +349,17 @@ function searchLawyers() {
         var lawyerLocation = document.createElement("p");
         lawyerLocation.textContent = `Location: ${lawyer.location}`;
 
-        var lawyerRatings = document.createElement("p");
-        lawyerRatings.textContent = `Ratings: ${lawyer.ratings}`;
+        var lawyerSpecialty = document.createElement("p");
+        lawyerSpecialty.textContent = `Specialty: ${lawyer.specialty}`;
+
+        var lawyerContact = document.createElement("p");
+        lawyerContact.textContent = `Contact: ${lawyer.contact}`;
 
         lawyerDetails.appendChild(lawyerName);
         lawyerDetails.appendChild(lawyerType);
         lawyerDetails.appendChild(lawyerLocation);
-        lawyerDetails.appendChild(lawyerRatings);
+        lawyerDetails.appendChild(lawyerSpecialty);
+        lawyerDetails.appendChild(lawyerContact);
 
         listItem.appendChild(lawyerDetails);
 
@@ -220,4 +384,12 @@ const searchByType = (type) => {
   searchInput.value = type;
   // Trigger the search function
   searchLawyers();
+};
+const goBack = () => {
+  console.log("click");
+  var suggestions = document.getElementById("suggestions");
+  var searchResults = document.getElementById("searchResults");
+  var resultsList = document.getElementById("resultsList");
+  suggestions.style.display = "block";
+  searchResults.style.display = "none";
 };

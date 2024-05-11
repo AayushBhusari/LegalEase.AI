@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Case Finder</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="navbar-left">
+        <h1>LegalHelpHub.com</h1>
+      </div>
+      <a href="#" class="toggle-button">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </a>
+      <div class="navbar-right">
+        <div class="navbar-links">
+          <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./chatbot/index.html">Chatbot</a></li>
+            <li><a href="./findLawyers/index.html">Find Lawyers</a></li>
+            <li><a href="./contact/index.html">Contact</a></li>
+            <li><a href="./aboutUs/index.html">About Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section class="main-section">
+      <div class="main">
+        <h1 id="h1">Case Finder</h1>
+        <form>
+          <select id="courtSelect">
+            <option value="">Select Court</option>
+            <option value="supreme">Supreme Court Of India</option>
+            <option value="bombay">Bombay High Court</option>
+            <option value="delhi">Delhi High Court</option>
+            <option value="pun-har">Punjab-Haryana High Court</option>
+            <option value="chhatisgarh">Chattisgarh High Court</option>
+            <option value="madras">Madras High Court</option>
+          </select>
+          <button type="button" onclick="redirectToCourt()">Go to Court</button>
+        </form>
+      </div>
+    </section>
+
+    <script>
+      function redirectToCourt() {
+        var courtSelect = document.getElementById("courtSelect");
+        var selectedOption = courtSelect.value;
+
+        if (selectedOption === "bombay") {
+          window.open(
+            "https://bombayhighcourt.nic.in/case_query.php",
+            "_blank"
+          );
+        } else if (selectedOption === "supreme") {
+          window.open("https://www.sci.gov.in/case-status-case-no/", "_blank");
+        } else if (selectedOption === "delhi") {
+          window.open("https://delhihighcourt.nic.in/court/case", "_blank");
+        } else if (selectedOption === "chhatisgarh") {
+          window.open(
+            "https://hcservices.ecourts.gov.in/ecourtindiaHC/cases/case_no.php?state_cd=18&dist_cd=1&court_code=1&stateNm=Chhattisgarh",
+            "_blank"
+          );
+        } else if (selectedOption === "madras") {
+          window.open(
+            "https://hcmadras.tn.gov.in/case_status_mas.php",
+            "_blank"
+          );
+        } else if (selectedOption === "pun-har") {
+          window.open(
+            "https://www.phhc.gov.in/home.php?search_param=mention_status",
+            "_blank"
+          );
+        } else {
+          alert("Please select a court.");
+        }
+      }
+    </script>
+  </body>
+</html>

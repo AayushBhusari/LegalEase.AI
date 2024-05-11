@@ -1,13 +1,22 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins&display=swap");
 
 * {
   box-sizing: border-box;
   font-family: "Open Sans", sans-serif;
 }
 
+.font-style {
+  font-family: "Abril Fatface", serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
 body {
+  height: 100dvh;
+  width: 100dvw;
   margin: 0;
   padding: 0;
+  background-color: #f7f5e6;
 }
 
 /* Navbar Styles */
@@ -16,8 +25,8 @@ body {
   position: relative;
   justify-content: space-between;
   align-items: center;
-  background-color: royalblue;
-  color: white;
+  color: black;
+  padding: 10px;
 }
 
 .navbar-left {
@@ -51,17 +60,19 @@ h1 {
 
 .navbar-links li a {
   text-decoration: none;
-  color: white;
   padding: 1rem;
+  color: black;
+  font-weight: 500;
+  font-size: 20px;
+  font-weight: 500;
 }
 
 .navbar-links li:hover {
-  background-color: aqua;
+  text-decoration: underline;
 }
 
 .navbar-links li a:hover {
   color: black;
-  font-weight: 600;
 }
 
 .toggle-button {
@@ -83,42 +94,62 @@ h1 {
 }
 
 /* Main Body Styles */
+
 .main-section {
-  padding: 2rem;
-  background-color: #f5f5f5;
-}
-
-.container {
-  width: 80%;
-  margin: 0 auto;
-}
-
-/* Footer Styles */
-footer {
-  background-color: royalblue;
   color: white;
-  padding: 1rem 0;
-}
-
-.footer-links ul {
+  padding: 20px;
   display: flex;
   justify-content: center;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  align-items: center;
+  background-color: #e8e8e8;
+  height: 88%;
+}
+.main-text {
+  text-align: center;
+  font-size: 28px;
 }
 
-.footer-links li {
-  margin: 0 10px;
+.first {
+  width: 65%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #333a56;
 }
 
-.footer-links li a {
-  text-decoration: none;
+.text-cont {
+  padding: 20px;
+  width: 80%;
+}
+
+.brand-text {
+  font-weight: 550;
+  font-size: 24px;
+}
+
+.sec {
+  padding: 150px;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  width: 35%;
+  height: 100%;
+}
+
+.feat-btns {
+  font-size: 14px;
+  background-color: #333a56;
+  padding: 20px;
+  border: none;
+  border-radius: 10px;
+  width: 300px;
   color: white;
-  transition: color 0.3s ease-in-out;
+  height: 80px;
 }
 
-.footer-links li a:hover {
-  color: black;
-  font-weight: 600;
+.feat-btns a {
+  color: white;
+  text-decoration: none;
 }
