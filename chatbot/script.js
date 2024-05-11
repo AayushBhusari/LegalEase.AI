@@ -10,6 +10,9 @@ async function sendMessage() {
   // Append user message to chat box
   appendMessage("user", message);
 
+  // Show loading indicator while fetching bot response
+  appendMessage("bot", "...");
+
   // Clear input field
   userInput.value = "";
 
@@ -20,12 +23,12 @@ async function sendMessage() {
     // Format bot response
     botResponse = formatResponse(botResponse);
     console.log(botResponse);
-    // Append formatted bot response to chat box
-    appendMessage("bot", botResponse);
+    // Update loading indicator with bot response
+    updateMessage("bot", "...", botResponse);
   } catch (error) {
     // Handle error
     console.error("Error fetching bot response:", error);
-    appendMessage("bot", "Bot: Sorry, I couldn't process your request.");
+    updateMessage("bot", "...", "Bot: Sorry, I couldn't process your request.");
   }
 }
 
@@ -35,11 +38,28 @@ function appendMessage(sender, message) {
   let messageElement = document.createElement("div");
   messageElement.classList.add(sender);
 
-  let messageText = document.createElement("div"); // Changed from <p> to <div>
-  messageText.innerText = message; // Use innerHTML instead of textContent
+  let messageText = document.createElement("div");
+  messageText.innerText = message;
 
   messageElement.appendChild(messageText);
   chatBox.appendChild(messageElement);
+
+  // Scroll to the bottom of the chat box
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+// Function to update a message in the chat box
+function updateMessage(sender, oldMessage, newMessage) {
+  let chatBox = document.getElementById("chatBox");
+  let messages = chatBox.getElementsByClassName(sender);
+
+  // Find the message with the old content and update it with the new content
+  for (let message of messages) {
+    if (message.innerText === oldMessage) {
+      message.innerText = newMessage;
+      break;
+    }
+  }
 
   // Scroll to the bottom of the chat box
   chatBox.scrollTop = chatBox.scrollHeight;
@@ -56,24 +76,18 @@ async function getBotResponseAI(message) {
   return response.text();
 }
 
-// Function to handle user input and bot response
-async function handleUserInput() {
-  let userInput = document.getElementById("userInput");
-  let message = userInput.value.trim();
-
-  // Send message if Enter key is pressed
-  if (event.key === "Enter") {
-    await sendMessage();
-  }
-}
-
 // Event listener for sending message on button click
 document.getElementById("sendButton").addEventListener("click", sendMessage);
 
 // Event listener for sending message on pressing Enter key
 document
   .getElementById("userInput")
-  .addEventListener("keypress", handleUserInput);
+  .addEventListener("keypress", function (event) {
+    // Send message if Enter key is pressed
+    if (event.key === "Enter") {
+      sendMessage();
+    }
+  });
 
 // Format the bot response
 const formatResponse = (response) => {
