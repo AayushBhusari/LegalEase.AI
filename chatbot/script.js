@@ -58,7 +58,7 @@ function appendMessage(sender, message) {
 // Placeholder function for fetching bot response using Google Generative AI
 async function getBotResponseAI(message) {
   // Replace 'YOUR_API_KEY' with your actual API key
-  const apiKey = "AIzaSyAL-xcWgAfO_h-z6vx-t7k0Mk1EDHvUZcA";
+  const apiKey = "";
   const genAI = new GoogleGenerativeAI(apiKey);
   const model = genAI.getGenerativeModel({ model: "gemini-pro" });
   const result = await model.generateContent(message);
